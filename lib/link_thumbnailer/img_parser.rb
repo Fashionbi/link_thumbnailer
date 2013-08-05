@@ -1,4 +1,4 @@
-require 'RMagick'
+require 'mini_magick'
 
 module LinkThumbnailer
 
@@ -32,7 +32,7 @@ module LinkThumbnailer
 
     def parse_one(img_url)
       img_data = @fetcher.fetch(img_url)
-      img = Magick::ImageList.new.from_blob(img_data).extend(
+      img = MiniMagick::ImageList.new.from_blob(img_data).extend(
         LinkThumbnailer::WebImage
       )
       img.source_url = img_url
